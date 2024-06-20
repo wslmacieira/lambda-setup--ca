@@ -1,6 +1,6 @@
 // import './src/teste.js'
 
-import { sendHello } from "./src/teste";
+import { sendHello } from "@/services/teste";
 
 export async function handler(event) {
     await new Promise((resolve) => setTimeout(resolve, 500));
