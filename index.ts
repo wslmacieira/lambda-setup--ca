@@ -1,10 +1,9 @@
-// import './src/teste.js'
-
-import { sendHello } from '@/services/teste'
+import { sendHello } from '@/infrastructure/services/teste'
 
 export async function handler(event: unknown) {
   await new Promise((resolve) => setTimeout(resolve, 500))
-  const name = 'wagner' //
+  const name = 'wagner'
+
   const hello = sendHello()
   const response = {
     statusCode: 200,
