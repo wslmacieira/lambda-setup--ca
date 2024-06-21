@@ -1,3 +1,4 @@
+/** @type {import('jest').Config} */
 module.exports = {
   roots: ['<rootDir>/src', '<rootDir>/tests'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/**/index.ts'],
