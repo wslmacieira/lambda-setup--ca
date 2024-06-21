@@ -13,7 +13,8 @@
     "husky:prepare": "husky init",
     "test": "jest --passWithNoTests",
     "test:watch": "npm test -- --watch",
-    "test:staged": "npm test -- --findRelatedTests"
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },
   "keywords": [],
   "author": "",
