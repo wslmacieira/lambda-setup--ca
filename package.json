@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "sls offline start",
+    "dev:watch": "npm run build:watch | npm run dev",
     "build": "node esbuild.config.js",
     "build:watch": "npm run build -- --watch",
     "debug": "set SLS_DEBUG=* && npm run dev",
