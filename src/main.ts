@@ -1,9 +1,36 @@
-import { User } from './domain/entities/User'
+import { APIGatewayRequest, APIGatewayResponse } from '@/interfaces'
+import middy from '@middy/core'
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 
-class Person extends User {
-  sayMyname() {
-    return 'Wagner'
+// Middlewares
+const middleware = (): middy.MiddlewareObj<APIGatewayProxyEvent, APIGatewayProxyResult> => {
+  const before: middy.MiddlewareFn<APIGatewayProxyEvent, APIGatewayProxyResult> = async (
+    request,
+  ): Promise<APIGatewayProxyResult> => {
+    // Your middleware logic
+    request.event.body = JSON.parse(request.event.body)
+    return
+  }
+  const after: middy.MiddlewareFn<APIGatewayProxyEvent, APIGatewayProxyResult> = async (
+    request,
+  ): Promise<APIGatewayProxyResult> => {
+    // Your middleware logic
+    request.response.body = JSON.stringify(request.response.body)
+    return
+  }
+
+  return {
+    before,
+    after,
   }
 }
 
-export default Person
+const execute = async (event: APIGatewayRequest<{ name: string }>): Promise<APIGatewayResponse<{ name: string }>> => {
+  console.log(typeof event.body)
+  return {
+    statusCode: 200,
+    body: event.body,
+  }
+}
+
+export const mainHandler = middy<APIGatewayProxyEvent, APIGatewayProxyResult>().use(middleware()).handler(execute)

@@ -1,3 +1,3 @@
-import { UserHandler } from '@/presentation/handlers/User'
+import { mainHandler } from '@/main'
 
-export const handler = new UserHandler().handler
+export const handler = mainHandler

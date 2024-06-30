@@ -1,6 +1,9 @@
-@baseUrl=http://[::1]:3000/dev
+@host=http://[::1]:3000/dev
 
-POST  {{baseUrl}}/execute
+###
+GET  {{host}}/execute
+###
+POST  {{host}}/execute
 Content-Type: application/json
 
 {
