@@ -2,12 +2,12 @@
 
 ###
 GET  {{host}}/execute
+
 ###
 POST  {{host}}/execute
 Content-Type: application/json
 
 {
-    "name": "Wagner",
-    "email": "teste@mail.com",
-    "password": "123"
+    "name": "Celular",
+    "price": 2.950
 }

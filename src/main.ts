@@ -1,6 +1,7 @@
 import { APIGatewayRequest, APIGatewayResponse } from '@/interfaces'
 import middy from '@middy/core'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
+import { Product } from './domain/product/entity/product'
 
 // Middlewares
 const middleware = (): middy.MiddlewareObj<APIGatewayProxyEvent, APIGatewayProxyResult> => {
@@ -25,11 +26,12 @@ const middleware = (): middy.MiddlewareObj<APIGatewayProxyEvent, APIGatewayProxy
   }
 }
 
-const execute = async (event: APIGatewayRequest<{ name: string }>): Promise<APIGatewayResponse<{ name: string }>> => {
-  console.log(typeof event.body)
+const execute = async (event: APIGatewayRequest<Partial<Product>>): Promise<APIGatewayResponse<Partial<Product>>> => {
+  const { name, price } = event.body
+  const product = Product.create(name, price)
   return {
     statusCode: 200,
-    body: event.body,
+    body: product,
   }
 }
 
