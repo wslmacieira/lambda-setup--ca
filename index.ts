@@ -1,3 +1,4 @@
-import { mainHandler } from '@/main'
+import { startCreateProductHandler, startListProductHandler } from '@/main'
 
-export const handler = mainHandler
+export const productCreateHandler = startCreateProductHandler()
+export const productListHandler = startListProductHandler()

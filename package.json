@@ -5,6 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node ./dist/app.mjs",
     "dev": "sls offline start",
     "dev:watch": "npm run build:watch | npm run dev",
     "build": "node esbuild.config.js",
@@ -24,6 +25,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.140",
+    "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
@@ -43,6 +45,7 @@
   },
   "dependencies": {
     "@middy/core": "^5.4.2",
-    "@prisma/client": "^5.16.1"
+    "@prisma/client": "^5.16.1",
+    "express": "^4.19.2"
   }
 }

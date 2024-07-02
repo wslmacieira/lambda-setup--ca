@@ -1,10 +1,10 @@
-@host=http://[::1]:3000/dev
+@host=http://[::1]:3000
 
 ###
-GET  {{host}}/execute
+GET  {{host}}/products
 
 ###
-POST  {{host}}/execute
+POST  {{host}}/products
 Content-Type: application/json
 
 {

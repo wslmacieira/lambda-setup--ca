@@ -11,15 +11,22 @@ provider:
     NODE_OPTIONS: '--enable-source-maps'
 
 functions:
-  hello:
-    handler: dist/index.handler
+  createProduct:
+    handler: dist/index.productCreateHandler
     events:
       - http:
-          path: execute
-          method: any
+          path: products
+          method: POST
+  listProduct:
+    handler: dist/index.productListHandler
+    events:
+      - http:
+          path: products
+          method: GET
 
 custom:
   serverless-offline:
     port: 4000
     noTimeout: true
     reloadHandler: true
+    noPrependStageInUrl: true

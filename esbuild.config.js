@@ -7,7 +7,7 @@ const watch = process.argv.includes('--watch')
 const ctx = await esbuild[watch ? 'context' : 'build']({
   logLevel: 'info',
   external: Object.keys(pkg?.dependencies || {}),
-  entryPoints: ['index.ts', 'src/**/'],
+  entryPoints: ['index.ts', 'app.ts', 'src/**/'],
   entryNames: '[dir]/[name]',
   outdir: 'dist',
   outExtension: { '.js': '.mjs' },
